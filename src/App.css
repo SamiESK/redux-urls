@@ -1,24 +1,43 @@
-.App {
-  text-align: center;
+html, body {
+  height:100%;
+  background-color: #50546D;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.search {
+  width: 100%;
+  position: relative;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 3px solid #00B4CC;
+  border-right: none;
+  padding: 5px;
+  height: 20px;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+.button{
+  border-radius: 5px;
+  border: 1px solid #000;
+  padding: 2px 2px;
+  background: rgb(255, 208, 0);
+  font-size: 1.3em;
+  cursor: pointer;
+  
+}
+
+.centered {
+  height: 50vh; /* Magic here */
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-h1 {
-  font-size: 45px;
+.text-head {
+  color: #fff;
 }
-
-.background{
-  background: -webkit-linear-gradient(top, #dfd6d6 50%, #dfd6d6 50%);
-  height:55%;
-  width:550px;
-  }

@@ -10,7 +10,6 @@ function* setSearch( {value} ) {
     const url = `https://api.shrtco.de/v2/shorten?url=${value}`;
     const data = yield axios.get(url);
     return yield put(setSearchResult(data.data.result.full_short_link));
-    // console.log(data.data.result.full_short_link);
     } catch (error) {
         console.log(error);
     }
