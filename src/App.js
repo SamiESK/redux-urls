@@ -8,7 +8,6 @@ import Results from "./components/search/results";
 // This file houses all the components that are used in the app
 
 function App() {
-
   return (
     // Allow provider to pass store to all components
     <Provider store={store}>

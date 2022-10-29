@@ -8,9 +8,9 @@ function Results(props) {
     if (props.searchResults) {
     return (
         <>
-        <div style={{ fontSize: "2rem" }} className="text-center center" >
-        {props.searchResults}
-        </div>
+            <div style={{ fontSize: "2rem" }} className="text-center center" >
+                {props.searchResults}
+            </div>
         </>
     )
     }

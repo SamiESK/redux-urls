@@ -11,7 +11,6 @@ const initialState = Map({
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
         case types.setSearchResults: {
-            console.log(action);
             return state.merge ({
                 searchResults: fromJS(action.results)
             })
