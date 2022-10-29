@@ -5,7 +5,7 @@ import { setSearchResult } from '../action.js';
 
 // SetSearch value is the action creator that is called in the search component
 
-function* setSearch( {value} ) { 
+export function* setSearch( {value} ) { 
     try {
     const url = `https://api.shrtco.de/v2/shorten?url=${value}`;
     const data = yield axios.get(url);
@@ -20,4 +20,4 @@ function* watchSearch() {
     yield takeLatest(types.watchGetSearchResults, setSearch);
 }
 
-export default watchSearch;
+export default (watchSearch);

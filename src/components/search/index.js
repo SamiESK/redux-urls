@@ -4,6 +4,7 @@ import { getSearchResults } from './action';
 
 // Search function that takes in the input and returns the results through onInputChange
 function Search(props) {
+
   const [textInput, setTextInput] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [sucessMessage, setSucessMessage] = useState('');
@@ -22,10 +23,19 @@ function Search(props) {
       setErrorMessage("");
       setSucessMessage("Shortened!")
       setTextInput(e.target.value);
-      onInputChange(e, props);
+      // handleClick(e);
+      // onInputChange(e, props);
     }
-    // console.log(e.target.value);
+    console.log(e.target.value);
     console.log(textInput);
+  }
+
+  // Button handler to call the search function
+  const handleClick = () => {
+    console.log("Clicked!");
+    setTextInput(textInput);
+    // console.log(textInput);
+    props.getSearchResults(textInput);
   }
 
   // Check if the input is a valid URL
@@ -45,19 +55,14 @@ function Search(props) {
       <div className="search centered">
             <div className="text-head">
             <h1 className="center" style={{ fontSize: "3rem" }}>URL Shortener!</h1>
-                <input size="50" style={{ fontSize: "1rem" }} onBlur ={handleChange} placeholder="Enter a URL to shorten!" />
+                <input size="50" style={{ fontSize: "1rem" }} onChange ={handleChange} placeholder="Enter a URL to shorten!" />
+                <button className='button' onClick={(e) => handleClick(e)}>Shorten!</button>
                 {errorMessage && <p style={{ color: "#FF3333", fontSize: "1rem" }} className="center">{errorMessage}</p>}
                 {sucessMessage && <p style={{ color: "#00ff0d", fontSize: "1.5rem" }} className="center" >{sucessMessage}</p>}
             </div>
         </div>
     </div>
   );
-}
-
-// Check if the input is a valid URL
-async function onInputChange(e, props) {
-  if (e.target.value.trim() !== "") 
-      props.getSearchResults(e.target.value);
 }
 
 // Dispatch the action to the reducer
