@@ -2,6 +2,7 @@ import React, { useState } from  'react';
 import { connect } from 'react-redux';
 import { getSearchResults } from './action';
 
+
 // Search function that takes in the input and returns the results through onInputChange
 function Search(props) {
 
@@ -10,32 +11,26 @@ function Search(props) {
   const [sucessMessage, setSucessMessage] = useState('');
 
   const handleChange = (e) => {
-    if(isValidURL(e.target.value) === false) {
-      setSucessMessage("");
-      setErrorMessage('Please enter a valid URL');
-      // console.log("test1")
-      if (e.target.value.trim() === "") {
-        setSucessMessage("");
-        setErrorMessage("URL cannot be empty");
-        // console.log("test2")
-      }
-    } else {
-      setErrorMessage("");
-      setSucessMessage("Shortened!")
-      setTextInput(e.target.value);
-      // handleClick(e);
-      // onInputChange(e, props);
-    }
-    console.log(e.target.value);
-    console.log(textInput);
+    setTextInput(e.target.value);;
   }
 
   // Button handler to call the search function
-  const handleClick = () => {
-    console.log("Clicked!");
-    setTextInput(textInput);
-    // console.log(textInput);
-    props.getSearchResults(textInput);
+  const handleClick = (e) => {
+    if(isValidURL(textInput) === false) {
+        setSucessMessage("");
+        setErrorMessage('Please enter a valid URL');
+        // console.log("test1")
+        if (textInput === "") {
+          setSucessMessage("");
+          setErrorMessage("URL cannot be empty");
+          // console.log("test2")
+        }
+      } else {
+        setErrorMessage("");
+        setSucessMessage("Shortened!")
+        setTextInput(textInput);
+        props.getSearchResults(textInput);
+      }
   }
 
   // Check if the input is a valid URL
